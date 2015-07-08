@@ -1,20 +1,20 @@
 public class MergeSort {
+    private static int[] a;
 
-    private static int []a;
-    public static void main(String[] args) {
-        a = getArray();
-        printArray(a);
-        sort();
-        System.out.println();
-        printArray(a);
+    public static int[] getA() {
+        return a;
     }
 
-    public static void sort(){
+    public static void setA(int[] a) {
+        MergeSort.a = a;
+    }
+
+    public static void sort(int[] a){ //Метод сортировки
         int []tempArray = new int[a.length];
         mergeSort(tempArray,0,a.length-1);
     }
 
-    public static void mergeSort(int []tempArray,int lowerIndex,int upperIndex){
+    public static void mergeSort(int []tempArray,int lowerIndex,int upperIndex){ //Подметод для сортировки
         if(lowerIndex == upperIndex){
             return;
         }else{
@@ -25,7 +25,7 @@ public class MergeSort {
         }
     }
 
-    public static void merge(int []tempArray,int lowerIndexCursor,int higerIndex,int upperIndex){
+    public static void merge(int []tempArray,int lowerIndexCursor,int higerIndex,int upperIndex){ //
         int tempIndex=0;
         int lowerIndex = lowerIndexCursor;
         int midIndex = higerIndex-1;
@@ -51,21 +51,21 @@ public class MergeSort {
         }
     }
 
-    public static void printArray(int []array){
+    public static void printArray(int []array){// Вывод массива на экран
         for(int i : array){
             System.out.print(i+" ");
         }
     }
 
-    public static int[] getArray(){
-        int size=10;
-        int []array = new int[size];
-        int item = 0;
-        for(int i=0;i<size;i++){
-            item = (int)(Math.random()*100);
-            array[i] = item;
-        }
-        return array;
-    }
+//    public static int[] getArray(){
+//        int size=10;
+//        int []array = new int[size];
+//        int item = 0;
+//        for(int i=0;i<size;i++){
+//            item = (int)(Math.random()*100);
+//            array[i] = item;
+//        }
+//        return array;
+//    }
 
 }
