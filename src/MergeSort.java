@@ -5,16 +5,24 @@ public class MergeSort {
         return a;
     }
 
+    public static int getAi(int i) {
+        return a[i];
+    }
+
     public static void setA(int[] a) {
         MergeSort.a = a;
     }
 
-    public static void sort(int[] a){ //Метод сортировки
+
+    public static void sort(int[] a){ //РњРµС‚РѕРґ СЃРѕСЂС‚РёСЂРѕРІРєРё
+       System.out.println("РљРѕР»-РІРѕ СЌР»РµРјРµРЅС‚РѕРІ: " + a.length);
+        System.out.println("РџРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚: " + a[0]);
         int []tempArray = new int[a.length];
-        mergeSort(tempArray,0,a.length-1);
+        mergeSort(tempArray, 0, a.length - 1);
+
     }
 
-    public static void mergeSort(int []tempArray,int lowerIndex,int upperIndex){ //Подметод для сортировки
+    public static void mergeSort(int []tempArray,int lowerIndex,int upperIndex){ //РџРѕРґРјРµС‚РѕРґ РґР»СЏ СЃРѕСЂС‚РёСЂРѕРІРєРё
         if(lowerIndex == upperIndex){
             return;
         }else{
@@ -51,7 +59,7 @@ public class MergeSort {
         }
     }
 
-    public static void printArray(int []array){// Вывод массива на экран
+    public static void printArray(int []array){// Р’С‹РІРѕРґ РјР°СЃСЃРёРІР° РЅР° СЌРєСЂР°РЅ
         for(int i : array){
             System.out.print(i+" ");
         }

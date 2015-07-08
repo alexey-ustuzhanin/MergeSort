@@ -2,7 +2,7 @@ import java.io.*;
 
 public class WorkFile {
 
-    private static String fileName = "c://Users//John//IdeaProjects//MergeSort//src//ArrayRead.txt";
+//    private static String fileName = "c://Users//John//IdeaProjects//MergeSort//src//ArrayRead.txt";
 
     public static void write(String fileName, String text) {
         //Определяем файл
@@ -29,7 +29,39 @@ public class WorkFile {
             throw new RuntimeException(e);
         }
     }
-    private static void exists(String fileName) throws FileNotFoundException {
+    public static void write(String fileName, int[] arr){
+        File file = new File(fileName);
+
+        try {
+            //проверяем, что если файл не существует то создаем его
+            if(!file.exists()){
+                file.createNewFile();
+            }
+
+            //PrintWriter обеспечит возможности записи в файл
+            PrintWriter out = new PrintWriter(file.getAbsoluteFile());
+
+            try {
+                //Записываем текст у файл
+                for(int i = 0; i < arr.length; i++){
+                    out.print(arr[i]);
+                        if(i < arr.length-1){
+                            out.print(",");
+                        }
+
+                }
+
+            } finally {
+                //После чего мы должны закрыть файл
+                //Иначе файл не запишется
+                out.close();
+            }
+        } catch(IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+    private static void exists(String fileName) throws FileNotFoundException { //Proverka nalichiya faila
         File file = new File(fileName);
         if (!file.exists()){
             throw new FileNotFoundException(file.getName());
@@ -51,7 +83,8 @@ public class WorkFile {
                 String s;
                 while ((s = in.readLine()) != null) {
                     sb.append(s);
-                    sb.append("\n");
+
+//                    sb.append("\n");
                 }
             } finally {
                 //Также не забываем закрыть файл
@@ -64,6 +97,8 @@ public class WorkFile {
         //Возвращаем полученный текст с файла
         return sb.toString();
     }
+
+
 
 
 }
